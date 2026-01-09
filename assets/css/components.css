@@ -264,7 +264,7 @@
     top: var(--spacing-md);
     right: var(--spacing-md);
     background-color: var(--color-primary);
-    color: var(--color-white);
+    /* color: var(--color-white); */
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--border-radius-sm);
     font-size: var(--font-size-small);
@@ -476,7 +476,7 @@
 }
 
 .publication-year {
-    color: var(--color-text-lighter);
+    color: var(--color-white);
     font-size: var(--font-size-small);
     font-weight: 600;
 }
