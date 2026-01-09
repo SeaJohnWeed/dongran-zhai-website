@@ -1,7 +1,6 @@
 
 Dongran Zhai, Ph.D.
 Email: dr.jiang.zhai@gmail.com
-Cell: +1(213) 408-6507
 Google Scholar | ORCID: 0000-0002-0859-4216
 Department of Ocean Sciences, 
 University of California, Santa Cruz

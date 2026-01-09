@@ -127,7 +127,6 @@ Doris-个人网站/
 ### 6. 联系方式页面 (contact.html)
 **主要内容：**
 - 邮箱：dr.jiang.zhai@gmail.com
-- 电话：+1(213) 408-6507
 - 所属机构：清华大学水利工程系（当前）
 - Google Scholar链接
 - ORCID链接
