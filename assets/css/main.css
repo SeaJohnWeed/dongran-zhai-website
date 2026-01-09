@@ -5,11 +5,11 @@
 /* CSS变量定义 */
 :root {
     /* 颜色系统 */
-    --color-primary: #1e3a5f;
-    --color-primary-dark: #152a47;
-    --color-primary-light: #2d5a8a;
-    --color-secondary: #4a90a4;
-    --color-accent: #6bb6d6;
+    --color-primary: #7744aa;
+    --color-primary-dark: #5d3388;
+    --color-primary-light: #9d66cc;
+    --color-secondary: #5a7aa4;
+    --color-accent: #a855d4;
     
     /* 文本颜色 */
     --color-text: #2c3e50;

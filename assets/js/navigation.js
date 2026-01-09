@@ -7,6 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('navMenu');
     const navbar = document.getElementById('navbar');
     
+    // 获取导航链接（在条件块外部定义，以便后续使用）
+    // 确保 navLinks 始终是一个数组
+    let navLinks = [];
+    if (navMenu) {
+        const links = navMenu.querySelectorAll('a');
+        navLinks = Array.from(links);
+    }
+    
     // 移动端菜单切换
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', function() {
@@ -15,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // 点击菜单项后关闭移动端菜单
-        const navLinks = navMenu.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 navToggle.classList.remove('active');
@@ -25,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 点击外部区域关闭菜单
         document.addEventListener('click', function(event) {
-            const isClickInsideNav = navbar.contains(event.target);
+            const isClickInsideNav = navbar && navbar.contains(event.target);
             if (!isClickInsideNav && navMenu.classList.contains('active')) {
                 navToggle.classList.remove('active');
                 navMenu.classList.remove('active');
@@ -69,15 +76,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // 高亮当前页面的导航项
-    const currentPath = window.location.pathname;
-    const currentPage = currentPath.split('/').pop() || 'index.html';
-    
-    navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href');
-        if (linkPath === currentPage || 
-            (currentPage === '' && linkPath === 'index.html') ||
-            (currentPage === 'index.html' && linkPath === 'index.html')) {
-            link.classList.add('active');
-        }
-    });
+    if (navLinks && navLinks.length > 0) {
+        const currentPath = window.location.pathname;
+        const currentPage = currentPath.split('/').pop() || 'index.html';
+        
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href');
+            if (linkPath === currentPage || 
+                (currentPage === '' && linkPath === 'index.html') ||
+                (currentPage === 'index.html' && linkPath === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+    }
 });

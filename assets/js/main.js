@@ -108,6 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // 控制台欢迎信息
-    console.log('%c欢迎访问 Dongran Zhai 的个人网站！', 'color: #1e3a5f; font-size: 16px; font-weight: bold;');
-    console.log('%c如有任何问题或建议，请通过网站联系我。', 'color: #4a90a4; font-size: 12px;');
+    console.log('%c欢迎访问 Dongran Zhai 的个人网站！', 'color:rgb(255, 255, 255); font-size: 16px; font-weight: bold;');
+    console.log('%c如有任何问题或建议，请通过网站联系我。', 'color:rgb(255, 255, 255); font-size: 12px;');
 });
