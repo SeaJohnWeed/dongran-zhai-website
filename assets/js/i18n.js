@@ -208,7 +208,57 @@ class I18n {
             }
         }
         
+        // 如果值是字符串，替换其中的常量引用
+        if (typeof value === 'string') {
+            return this.replaceConstants(value);
+        }
+        
         return value;
+    }
+
+    replaceConstants(text) {
+        if (typeof text !== 'string') {
+            return text;
+        }
+        
+        // 匹配 @constants.en.xxx 或 @constants.zh.xxx 格式的引用
+        const constantPattern = /@constants\.([a-z]{2})\.([a-zA-Z0-9_\.]+)/g;
+        
+        return text.replace(constantPattern, (match, lang, path) => {
+            // 优先使用当前语言，如果不存在则使用指定的语言，最后回退到英文
+            let constantValue = this.translations.constants;
+            
+            if (!constantValue) {
+                return match; // 如果 constants 对象不存在，返回原始匹配
+            }
+            
+            // 尝试使用指定语言或当前语言
+            const targetLang = constantValue[this.currentLang] ? this.currentLang : 
+                              (constantValue[lang] ? lang : 'en');
+            
+            if (!constantValue[targetLang]) {
+                return match; // 如果常量不存在，返回原始匹配
+            }
+            
+            constantValue = constantValue[targetLang];
+            
+            // 遍历常量键路径
+            const pathKeys = path.split('.');
+            for (const k of pathKeys) {
+                if (constantValue && typeof constantValue === 'object' && constantValue[k]) {
+                    constantValue = constantValue[k];
+                } else {
+                    return match; // 如果常量键不存在，返回原始匹配
+                }
+            }
+            
+            // 如果常量值本身还包含常量引用，递归替换
+            if (typeof constantValue === 'string' && constantValue.includes('@constants.')) {
+                return this.replaceConstants(constantValue);
+            }
+            
+            return constantValue;
+        });
     }
 
     t(key) {
