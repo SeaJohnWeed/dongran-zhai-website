@@ -631,7 +631,7 @@
       "required": "必填项。表单提交后，您将被重定向到邮件客户端。",
       "openingEmail": "正在打开邮件客户端...",
       "address_beijing": "中国，北京",
-      "googleScholar": "谷歌学术搜索",
+      "googleScholar": "谷歌学术主页",
       "orcid": "开放学者识别码（ORCID）"
     },
     "footer": {
