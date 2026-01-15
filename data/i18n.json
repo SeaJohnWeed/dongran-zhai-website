@@ -636,7 +636,7 @@
     },
     "footer": {
       "footerName": "翟东冉",
-      "footerAffiliation": "@constants.zh.positions.postdoc\n@constants.zh.institutions.tsinghua_department",
+      "footerAffiliation": "@constants.zh.positions.postdoc\n@constants.zh.institutions.tsinghua_department\n@constants.zh.institutions.tsinghua_full",
       "quickLinks": "快速链接",
       "contactInfo": "联系方式",
       "copyright": "© 2026 翟东冉。保留所有权利。"
